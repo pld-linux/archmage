@@ -1,5 +1,4 @@
 %include        /usr/lib/rpm/macros.python
-
 Summary:	CHM (Compiled HTML) Decompressor
 Summary(pl):	Dekompresor plików CHM (Compiled HTML)
 Name:		archmage
@@ -28,15 +27,22 @@ Jediego Winga.
 %setup -q
 
 %build
-env CFLAGS="%{rpmcflags}" python setup.py build
+CFLAGS="%{rpmcflags}" \
+python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+python setup.py install \
+	--root=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f INSTALLED_FILES
+%files
 %defattr(644,root,root,755)
 %doc doc/* README
+%attr(755,root,root) %{_bindir}/archmage
+%{py_sitedir}/*.py*
+%attr(755,root,root) %{py_sitedir}/_chmlib.so
+%{_datadir}/archmage
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/arch.conf
