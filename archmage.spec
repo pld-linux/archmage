@@ -1,4 +1,4 @@
-%include        /usr/lib/rpm/macros.python
+%include	/usr/lib/rpm/macros.python
 Summary:	CHM (Compiled HTML) Decompressor
 Summary(pl):	Dekompresor plików CHM (Compiled HTML)
 Name:		archmage
@@ -10,6 +10,7 @@ Source0:	http://dl.sourceforge.net/sourceforge/archmage/%{name}-%{version}.tar.g
 # Source0-md5:	0ab0e7c51fbf10be0a2719f5b5f329f8
 URL:		http://archmage.sf.net/
 BuildRequires:	python-devel
+BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
