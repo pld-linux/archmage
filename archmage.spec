@@ -10,7 +10,6 @@ Source0:	http://dl.sourceforge.net/archmage/%{name}-%{version}.tar.gz
 Patch0:		%{name}-morearchs.patch
 URL:		http://archmage.sf.net/
 BuildRequires:	python-devel
-BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
