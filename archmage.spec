@@ -3,11 +3,12 @@ Summary:	CHM (Compiled HTML) Decompressor
 Summary(pl):	Dekompresor plików CHM (Compiled HTML)
 Name:		archmage
 Version:	0.0.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Libraries
-Source0:	http://dl.sourceforge.net/sourceforge/archmage/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/archmage/%{name}-%{version}.tar.gz
 # Source0-md5:	0ab0e7c51fbf10be0a2719f5b5f329f8
+Patch0:		%{name}-morearchs.patch
 URL:		http://archmage.sf.net/
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
@@ -26,6 +27,7 @@ Jediego Winga.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 CFLAGS="%{rpmcflags}" \
