@@ -8,7 +8,7 @@ Group:		Development/Libraries
 Source0:	http://dl.sourceforge.net/archmage/%{name}-%{version}.tar.gz
 # Source0-md5:	0ab0e7c51fbf10be0a2719f5b5f329f8
 Patch0:		%{name}-morearchs.patch
-URL:		http://archmage.sf.net/
+URL:		http://archmage.sourceforge.net/
 BuildRequires:	python-devel
 %pyrequires_eq	python-libs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,4 +47,4 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/*.py*
 %attr(755,root,root) %{py_sitedir}/_chmlib.so
 %{_datadir}/archmage
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/arch.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/arch.conf
