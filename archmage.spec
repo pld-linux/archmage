@@ -1,5 +1,5 @@
 Summary:	CHM (Compiled HTML) Decompressor
-Summary(pl):	Dekompresor plikÛw CHM (Compiled HTML)
+Summary(pl.UTF-8):   Dekompresor plik√≥w CHM (Compiled HTML)
 Name:		archmage
 Version:	0.0.6
 Release:	4
@@ -18,10 +18,10 @@ arCHMage is an extensible reader and decompiler for files in the CHM
 format. This is the format used by Microsoft HTML help, and is also
 known as Compiled HTML. arCHMage is based on chmlib by Jed Wing.
 
-%description -l pl
-arCHMage jest rozszerzalnym czytnikiem i dekompilatorem dla plikÛw w
-formacie CHM. Jest to format uøywany przez pliki pomocy Microsoft
-HTML, zwane takøe jako skompilowany HTML. arCHMage bazuje na chmlib
+%description -l pl.UTF-8
+arCHMage jest rozszerzalnym czytnikiem i dekompilatorem dla plik√≥w w
+formacie CHM. Jest to format u≈ºywany przez pliki pomocy Microsoft
+HTML, zwane tak≈ºe jako skompilowany HTML. arCHMage bazuje na chmlib
 Jediego Winga.
 
 %prep
