@@ -1,5 +1,5 @@
 Summary:	CHM (Compiled HTML) Decompressor
-Summary(pl.UTF-8):   Dekompresor plików CHM (Compiled HTML)
+Summary(pl.UTF-8):	Dekompresor plików CHM (Compiled HTML)
 Name:		archmage
 Version:	0.0.6
 Release:	4
