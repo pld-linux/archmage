@@ -2,15 +2,16 @@ Summary:	CHM (Compiled HTML) Decompressor
 Summary(pl.UTF-8):	Dekompresor plików CHM (Compiled HTML)
 Name:		archmage
 Version:	0.0.6
-Release:	4
+Release:	5
 License:	GPL
 Group:		Development/Libraries
-Source0:	http://dl.sourceforge.net/archmage/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/archmage/%{name}-%{version}.tar.gz
 # Source0-md5:	0ab0e7c51fbf10be0a2719f5b5f329f8
 Patch0:		%{name}-morearchs.patch
 URL:		http://archmage.sourceforge.net/
 BuildRequires:	python-devel
-%pyrequires_eq	python-libs
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,13 +30,18 @@ Jediego Winga.
 %patch0 -p1
 
 %build
-CFLAGS="%{rpmcflags}" \
-python setup.py build
+CC="%{__cc}" \
+CFLAGS="%{rpmcppflags} %{rpmcflags}" \
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python setup.py install \
+%{__python} setup.py install \
+	--skip-build \
+	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
+
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,8 +49,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/* README
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/arch.conf
 %attr(755,root,root) %{_bindir}/archmage
-%{py_sitedir}/*.py*
+%{py_sitedir}/CHM.py[co]
+%{py_sitedir}/chmlib.py[co]
+%{py_sitedir}/mod_chm.py[co]
 %attr(755,root,root) %{py_sitedir}/_chmlib.so
 %{_datadir}/archmage
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/arch.conf
+%{py_sitedir}/%{name}-%{version}-py*.egg-info
