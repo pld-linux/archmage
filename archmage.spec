@@ -11,7 +11,7 @@ Patch0:		%{name}-morearchs.patch
 URL:		http://archmage.sourceforge.net/
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
